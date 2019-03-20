@@ -20,13 +20,15 @@ app.post('/post-trains', (req, res) => {
     json: true,
     body: req.body.params
   }, function (error, response, body){
-    if (response.body.error)  return res.send(response.body);
-    let available = response.body.data.list.filter(i => i.types.length);
     console.log('>>>>>>>>>>>>>');
     console.log(error);
     console.log('------------');
     console.log(response && response.body && response.body.data);
+    console.log('------***------');
+    console.log(body);
     console.log('<<<<<<<<<<<<<');
+    if (response.body.error)  return res.send(response.body);
+    let available = response.body.data.list.filter(i => i.types.length);
     res.send(available);
   });
 })
