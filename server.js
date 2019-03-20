@@ -10,12 +10,14 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.post('/post-trains', (req, res) => {
+  console.log('REQUEST<<<<<<<<<<,');
   request({
     url: "https://booking.uz.gov.ua/train_search/",
     method: "POST",
   	headers: {
       'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
     },
     json: true,
     body: req.body.params
